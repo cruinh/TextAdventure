@@ -7,6 +7,8 @@ from places.front_porch import *
 from places.diningroom import *
 from places.livingroom import *
 
+from things.housekey import *
+
 class World():
 	def __init__(self):
 		self.places = []
@@ -19,6 +21,7 @@ class World():
 theWorld = World()
 
 atrium = Atrium(theWorld)
+atrium.placeThing(HouseKey())
 hallway = Hallway(theWorld)
 frontPorch = FrontPorch(theWorld)
 diningroom = Diningroom(theWorld)

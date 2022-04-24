@@ -1,3 +1,4 @@
+from inventory import *
 from direction import *
 from exit import Exit
 
@@ -6,9 +7,18 @@ class Place():
 		self.name = name
 		self.description = description
 		self.actors = []
-		self.items = []
+		self.inventory = Inventory(self)
 		self.exits = []
 		world.places.append(self)
+	
+	def placeThing(self, thing, silently=True):
+		if self.inventory.contains(thing):
+			if silently == False:
+				print(self.name + " already has the" + thing.name)
+		else:
+			if silently == False:
+				print("You place the " + thing.name + " in the " + self.name)
+			self.inventory.add(thing)
 	
 	def commands(self):
 		result = []
@@ -28,13 +38,13 @@ class Place():
 				txt += self.actors[i].name
 			print("\tYou see " + txt)
 
-		numItems = len(self.items)
+		numItems = len(self.inventory.contents)
 		if numItems > 0:
 			txt = ""
 			for i in range(0, numItems):
 				if i > 0:
 					txt += ", "
-				txt += self.items[i].name
+				txt += "a " + self.inventory.contents[i].name
 			print("\tYou see " + txt)
 			
 		numExits = len(self.exits)

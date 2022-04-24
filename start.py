@@ -13,8 +13,11 @@ def main():
 	player.location.describe()
 	
 	while True:
-		cmd = input('\n--> ')
-		if commandHandler(cmd) == False:
+		entry = input('\n--> ').split()
+		cmd = entry.pop(0)
+		arg = ' '.join(entry)
+
+		if commandHandler(cmd, arg) == False:
 			break
 			
 if __name__ == '__main__':
