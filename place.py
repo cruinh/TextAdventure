@@ -59,8 +59,8 @@ class Place():
 	def addExit(self, 
 		direction, 
 		destination, 
-		doorName="Door", 
-		locked=False, 
+		locked=False,
+		doorName="Door",  
 		oneWay=False, 
 		returnDoor="Door", 
 		returnLocked=False):
@@ -70,11 +70,17 @@ class Place():
 		if oneWay == False:
 			returnExit = Exit(reverseDirection(direction), self, returnDoor, returnLocked)
 			destination.exits.append(returnExit)
+			
+	def getExit(self, direction):
+		for e in self.exits:
+			if e.direction.equals(direction):
+				return e
+		return None
 	
-	def handleCommand(self, cmd, player):
+	def handleCommand(self, cmd, game):
 		for i in self.exits:
 			if i.direction.abbreviation == cmd:
 				print("You move to the " + i.direction.name + "\n")
-				i.use(player)
+				i.use(game.player)
 				break
 		return True

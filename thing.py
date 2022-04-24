@@ -7,8 +7,8 @@ class Thing():
 		self.commands = []
 		self.owner = owner
 		
-	def use(self, player):
-		self.handleCommand(use, player, player.location)
+	def use(self, game):
+		self.handleCommand("use", game)
 	
 	def commands(self):
 		return self.commands
@@ -16,9 +16,12 @@ class Thing():
 	def describe(self):
 		print(self.description)
 				
-	def handleCommand(self, cmd, player, location):
+	def handleCommand(self, cmd, game):
 		print("You " + cmd + " the " + self.name)
 		
 	def combineWith(self, otherThing):
 		print("You combine the " + self.name + " with the " + otherThing.name)
+		
+	def handleCommand(self, cmd, arg, game):
+		print(self.name + " doesn't know how to handle the command '" + cmd + "'")
 		

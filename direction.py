@@ -3,6 +3,15 @@ class Direction():
 		self.name = name
 		self.abbreviation = abbreviation
 		
+	def equals(self, otherDirection):
+		if isinstance(otherDirection, Direction):
+			if self.name == otherDirection.name or self.abbreviation == otherDirection.abbreviation:
+				return True
+		else:
+			if self.name == otherDirection or self.abbreviation == otherDirection:
+				return True
+		return False
+		
 North = Direction("North", "n")
 South = Direction("South", "s")
 East = Direction("East", "e")
