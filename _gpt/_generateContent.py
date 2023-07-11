@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 def main():
-    src = Path('places/atrium.py').read_text()
+    src = Path('../places/atrium.py').read_text()
 
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
