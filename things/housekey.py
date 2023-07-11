@@ -4,7 +4,7 @@ from places.atrium import Atrium
 class HouseKey(Thing):
 	def __init__(self):
 		Thing.__init__(self,
-			"House Key",
+			["House Key", "Key"],
 			"An ordinary-looking house key.")
 			
 	def use(self, game):

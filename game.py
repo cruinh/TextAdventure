@@ -33,7 +33,7 @@ class Game (object):
 		things = self.player.location.inventory.contents
 		thing = None
 		for t in things:
-			if t.name.lower() == thingName.lower():
+			if t.respondsToName(thingName):
 				thing = t
 		
 		if thing is not None:
