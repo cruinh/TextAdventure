@@ -6,6 +6,7 @@ from places.hallway import *
 from places.front_porch import *
 from places.diningroom import *
 from places.livingroom import *
+from places.teengirlbedroom import *
 
 from things.housekey import *
 
@@ -19,12 +20,15 @@ class World(object):
 		self.frontPorch = FrontPorch(self)
 		self.diningroom = Diningroom(self)
 		self.livingroom = Livingroom(self)
+		self.teenGirlBedroom = TeenGirlBedroom(self)
 	
 		self.atrium.addExit(North, self.frontPorch, True)
 		self.atrium.addExit(West, self.livingroom)
 		self.atrium.addExit(South, self.hallway)
 		
 		self.livingroom.addExit(West, self.diningroom)
+		
+		self.hallway.addExit(West, self.teenGirlBedroom)
 		
 	def describe(self):
 		print("You find yourself in a World. The world has has many places:")

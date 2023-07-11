@@ -1,0 +1,1 @@
+To move from the atrium to the bedroom, you would need to use the command "west" to move in the direction of West. This will take you from the Atrium to the living room, and then you would need to use "west" again in order to move into the Teen Girl Bedroom.
